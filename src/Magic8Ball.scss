@@ -1,0 +1,51 @@
+.container-8ball {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.outer-ball {
+  border: 4px solid black;
+  border-radius: 20rem;
+  width: 25rem;
+  height: 25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: hsl(275, 52%, 18%);
+  cursor: pointer;
+}
+.inner-ball {
+  border-radius: 10rem;
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ccc3d3;
+}
+
+.answer-8ball {
+  user-select: none;
+  width: 12rem;
+  height: 12rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 12rem;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text-span-8ball {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 40px;
+}
