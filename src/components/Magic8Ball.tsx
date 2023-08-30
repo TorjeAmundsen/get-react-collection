@@ -2,14 +2,14 @@ import { useState } from "react";
 
 function Magic8Ball() {
   const [answersList, setAnswersList] = useState([
-    "Mulig det.",
-    "Ja!",
-    "Kanskje",
-    "Absolutt ikke.",
-    "Aldri i verden!",
-    "Om du er heldig.",
-    "Usannsynlig...",
-    "Absolutt!",
+    "It's possible.",
+    "Yes!",
+    "Maybe.",
+    "Absolutely not.",
+    "Never ever!",
+    "If you're lucky.",
+    "Unlikely...",
+    "Absolutely!",
   ]);
   const [answer, setAnswer] = useState("Click to Generate Answer");
   const [shadowStyle, setShadowStyle] = useState("box-shadow: 0 0 25px #000");
