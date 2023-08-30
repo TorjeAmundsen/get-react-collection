@@ -37,9 +37,7 @@ body {
   margin: 5px 0 5px 0;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 32px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   font-size: 16px;
   padding: 0 1.25rem 0 1.25rem;
   display: flex;
@@ -47,18 +45,18 @@ body {
   text-align: center;
   align-items: center;
   transition: 100ms;
-}
-.nav-item:hover {
-  cursor: pointer;
-  background-color: var(--plt-3);
-}
-.nav-item.active {
-  background-color: var(--plt-2);
-  color: var(--plt-3);
-  box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.3);
-}
-.nav-item.active:hover {
-  background-color: var(--plt-2-lighter);
+  &:hover {
+    cursor: pointer;
+    background-color: var(--plt-3);
+  }
+  &.active {
+    background-color: var(--plt-2);
+    color: var(--plt-3);
+    box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.3);
+    &:hover {
+      background-color: var(--plt-2-lighter);
+    }
+  }
 }
 
 .center {
@@ -67,4 +65,4 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}/*# sourceMappingURL=App.css.map */
+}
