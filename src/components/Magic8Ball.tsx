@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 function Magic8Ball() {
   const [answersList, setAnswersList] = useState([
@@ -11,6 +12,10 @@ function Magic8Ball() {
     "Unlikely...",
     "Absolutely!",
   ]);
+  useEffect(() => {
+    document.title = "Magic 8-Ball";
+  }, []);
+
   const [answer, setAnswer] = useState("Click to Generate Answer");
   const [shadowStyle, setShadowStyle] = useState("box-shadow: 0 0 25px #000");
   const [cooldown, setCooldown] = useState(false);
