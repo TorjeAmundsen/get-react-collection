@@ -1,5 +1,5 @@
 function TaskPlannerBase() {
-  return <div className="center">TaskPlannerBase</div>;
+  return <div className="center">TaskPlanner is under construction.</div>;
 }
 
 export default TaskPlannerBase;

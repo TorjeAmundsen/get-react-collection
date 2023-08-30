@@ -1,7 +1,7 @@
 function TrafficLight() {
   return (
     <>
-      <div className="center">TrafficLight</div>
+      <div className="center">TrafficLight is under construction.</div>
     </>
   );
 }
