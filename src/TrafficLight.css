@@ -1,0 +1,124 @@
+.center-bottom-TL {
+  font-size: 32px;
+  text-align: center;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.buttons-container-TL {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  width: 7rem;
+  height: 35rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-TL {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: none;
+  border-radius: 2rem;
+  outline: 2px solid black;
+  background-color: #0f1016;
+  box-shadow: inset 3px 5px 4px rgba(255, 255, 255, 0.1), inset -3px -5px 4px rgba(0, 0, 0, 0.7);
+}
+
+.stem-TL {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #0c0c0c;
+  width: 3rem;
+  height: 40vh;
+  outline: 3px solid #000;
+  box-shadow: inset 5px -10px 4px rgba(255, 255, 255, 0.1), inset -5px -5px 4px rgba(0, 0, 0, 0.7);
+}
+
+.light-TL {
+  cursor: pointer;
+  margin: 2.5rem 2.5rem;
+  width: 6rem;
+  height: 6rem;
+  border: none;
+  border-radius: 6rem;
+  outline: 3px solid #000;
+  box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.75), none;
+  transition: 250ms;
+}
+
+.red-TL {
+  background-color: #250606;
+}
+
+.red-TL.on-TL {
+  background-color: #9b1818;
+  box-shadow: 0 0 50px #bb1e1e, inset 0 0 20px #ec3f3f;
+}
+
+.yellow-TL {
+  background-color: #1f1803;
+}
+
+.yellow-TL.on-TL {
+  background-color: #dbbf1e;
+  box-shadow: 0 0 50px #dbbf1e, inset 0 0 20px #e4d373;
+}
+
+.green-TL {
+  background-color: #061b05;
+}
+
+.green-TL.on-TL {
+  background-color: #42c421;
+  box-shadow: 0 0 50px #42c421, inset 0 0 20px #8de473;
+}
+
+.button-TL {
+  background-color: #cccccc;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 8px;
+  transition: 80ms;
+  border: 2px solid #0c0c0c;
+  box-shadow: 2px 2px 15px rgb(0, 0, 0), inset 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.button-TL:hover {
+  transform: scale(102%);
+}
+
+.button-TL:active {
+  transform: scale(98%);
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.3), inset 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.button-TL.red-TL {
+  background-color: #ad2121;
+}
+
+.button-TL.red-TL:hover {
+  background-color: #ca2929;
+}
+
+.button-TL.yellow-TL {
+  background-color: #dbbf1e;
+}
+
+.button-TL.yellow-TL:hover {
+  background-color: #eed548;
+}
+
+.button-TL.green-TL {
+  background-color: #42c442;
+}
+.button-TL.green-TL:hover {
+  background-color: #8de473;
+}/*# sourceMappingURL=TrafficLight.css.map */
