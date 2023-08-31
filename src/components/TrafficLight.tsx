@@ -77,15 +77,12 @@ function TrafficLight() {
 
   return (
     <>
-      <div className="center-bottom-TL">
-        TrafficLight is under construction.
-      </div>
       <div className="buttons-container-TL">
         <button
           onClick={() => {
             setLights(true, false, false);
-            clearInterval(interval.current);
-            interval.current = 0;
+            clearTimeout(timeout.current);
+            timeout.current = 0;
           }}
           className="red-TL button-TL"
         >
@@ -94,8 +91,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setLights(false, true, false);
-            clearInterval(interval.current);
-            interval.current = 0;
+            clearTimeout(timeout.current);
+            timeout.current = 0;
           }}
           className="yellow-TL button-TL"
         >
@@ -104,8 +101,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setLights(false, false, true);
-            clearInterval(interval.current);
-            interval.current = 0;
+            clearTimeout(timeout.current);
+            timeout.current = 0;
           }}
           className="green-TL button-TL"
         >
@@ -114,8 +111,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setAll(true);
-            clearInterval(interval.current);
-            interval.current = 0;
+            clearTimeout(timeout.current);
+            timeout.current = 0;
           }}
           className="button-TL"
         >
@@ -124,8 +121,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setAll(false);
-            clearInterval(interval.current);
-            interval.current = 0;
+            clearTimeout(timeout.current);
+            timeout.current = 0;
           }}
           className="button-TL"
         >
