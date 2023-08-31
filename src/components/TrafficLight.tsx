@@ -34,9 +34,15 @@ function TrafficLight() {
   };
 
   const autoLights = () => {
-    setLightsArray[light.current]((prev) => {
-      return !prev;
-    });
+    if (light.current !== 0 && velocity.current !== 1) {
+      setLightsArray[light.current]((prev) => {
+        return !prev;
+      });
+    }
+    if (light.current === 1 && velocity.current === 1) {
+      setRedLightState(false);
+      setYellowLightState(false);
+    }
     light.current += velocity.current;
     setLightsArray[light.current]((prev) => {
       return !prev;
