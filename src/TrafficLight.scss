@@ -3,9 +3,12 @@
   margin-left: 1rem;
   display: flex;
   width: 7rem;
-  height: 35rem;
+  height: 17rem;
   flex-direction: column;
   justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .container-TL {
@@ -74,43 +77,26 @@
 }
 
 .button-TL {
-  background-color: #cccccc;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px #000, -1px 1px 2px #000, -1px -1px 2px #000,
+    1px -1px 2px #000;
+  user-select: none;
+  background-color: var(--plt-2);
   width: 5rem;
   height: 5rem;
-  border-radius: 8px;
+  border-radius: 50px;
   transition: 80ms;
-  border: 2px solid #0c0c0c;
+  border: none;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .button-TL:hover {
-  transform: scale(102%);
+  background-color: var(--plt-2-lighter);
 }
 
 .button-TL:active {
   transform: scale(98%);
   box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.4), inset 0 0 4px rgba(0, 0, 0, 0.5);
-}
-
-.button-TL.red-TL {
-  background-color: #ad2121;
-}
-
-.button-TL.red-TL:hover {
-  background-color: #ca2929;
-}
-
-.button-TL.yellow-TL {
-  background-color: #dbbf1e;
-}
-
-.button-TL.yellow-TL:hover {
-  background-color: #eed548;
-}
-
-.button-TL.green-TL {
-  background-color: #42c442;
-  &:hover {
-    background-color: #8de473;
-  }
 }

@@ -80,36 +80,6 @@ function TrafficLight() {
       <div className="buttons-container-TL">
         <button
           onClick={() => {
-            setLights(true, false, false);
-            clearTimeout(timeout.current);
-            timeout.current = 0;
-          }}
-          className="red-TL button-TL"
-        >
-          Red
-        </button>
-        <button
-          onClick={() => {
-            setLights(false, true, false);
-            clearTimeout(timeout.current);
-            timeout.current = 0;
-          }}
-          className="yellow-TL button-TL"
-        >
-          Yellow
-        </button>
-        <button
-          onClick={() => {
-            setLights(false, false, true);
-            clearTimeout(timeout.current);
-            timeout.current = 0;
-          }}
-          className="green-TL button-TL"
-        >
-          Green
-        </button>
-        <button
-          onClick={() => {
             setAll(true);
             clearTimeout(timeout.current);
             timeout.current = 0;
