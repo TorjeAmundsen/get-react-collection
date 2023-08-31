@@ -11,13 +11,13 @@ function TrafficLight() {
   ];
 
   const velocity = useRef(1);
-  const interval = useRef(0);
+  const timeout = useRef(0);
   const light = useRef(0);
 
   useEffect(() => {
-    interval.current = 0;
+    timeout.current = 0;
     return () => {
-      clearInterval(interval.current);
+      clearTimeout(timeout.current);
     };
   }, []);
 
@@ -33,7 +33,11 @@ function TrafficLight() {
     });
   };
 
-  const autoLights = () => {
+  const getRandomNumber = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
+
+  const autoLights = async () => {
     if (light.current !== 0 && velocity.current !== 1) {
       setLightsArray[light.current]((prev) => {
         return !prev;
@@ -51,18 +55,23 @@ function TrafficLight() {
       light.current === 0 || light.current === 2
         ? velocity.current * -1
         : velocity.current;
+    if (light.current === 1) {
+      timeout.current = setTimeout(autoLights, 1800);
+    } else {
+      timeout.current = setTimeout(autoLights, getRandomNumber(3000, 7000));
+    }
   };
 
   const toggleAutoLightsInterval = () => {
-    console.log(interval.current);
-    if (interval.current) {
-      clearInterval(interval.current);
-      interval.current = 0;
+    console.log(timeout.current);
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+      timeout.current = 0;
     } else {
       setLights(true, false, false);
       light.current = 0;
       velocity.current = 1;
-      interval.current = setInterval(autoLights, 1300);
+      timeout.current = setTimeout(autoLights, 1800);
     }
   };
 
