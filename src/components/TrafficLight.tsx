@@ -1,48 +1,76 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function TrafficLight() {
-  const [redOn, setRedOn] = useState(true);
-  const [yellowOn, setYellowOn] = useState(true);
-  const [greenOn, setGreenOn] = useState(true);
-  const [velocity, setVelocity] = useState(0);
-  const [running, setRunning] = useState(false);
+  const [redLightState, setRedLightState] = useState(true);
+  const [yellowLightState, setYellowLightState] = useState(true);
+  const [greenLightState, setGreenLightState] = useState(true);
+  const setLightsArray = [
+    setRedLightState,
+    setYellowLightState,
+    setGreenLightState,
+  ];
 
-  const getDelay = (min: number, max: number): number => {
-    const x: number = Math.floor(min);
-    const y: number = Math.floor(max);
-    return Math.floor(Math.random() * (y - x + 1) + x);
-  };
-  const setLights = (red: boolean, yellow: boolean, green: boolean) => {
-    setRedOn(red);
-    setYellowOn(yellow);
-    setGreenOn(green);
-  };
-  const setAll = (state: boolean) => {
-    setRedOn(state);
-    setYellowOn(state);
-    setGreenOn(state);
-  };
+  const velocity = useRef(1);
+  const interval = useRef(0);
+  const light = useRef(0);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setVelocity((prev) => prev * -1);
-    }, getDelay(3000, 10000));
+    interval.current = 0;
     return () => {
-      clearTimeout(timeout);
+      clearInterval(interval.current);
     };
-  }, [velocity]);
-  useEffect(() => {
-    if (running) {
-      setTimeout(() => {}, 800);
+  }, []);
+
+  const setLights = (red: boolean, yellow: boolean, green: boolean) => {
+    setRedLightState(red);
+    setYellowLightState(yellow);
+    setGreenLightState(green);
+  };
+
+  const setAll = (state: boolean) => {
+    setLightsArray.forEach((e) => {
+      e(state);
+    });
+  };
+
+  const autoLights = () => {
+    setLightsArray[light.current]((prev) => {
+      return !prev;
+    });
+    light.current += velocity.current;
+    setLightsArray[light.current]((prev) => {
+      return !prev;
+    });
+    velocity.current =
+      light.current === 0 || light.current === 2
+        ? velocity.current * -1
+        : velocity.current;
+  };
+
+  const toggleAutoLightsInterval = () => {
+    console.log(interval.current);
+    if (interval.current) {
+      clearInterval(interval.current);
+      interval.current = 0;
+    } else {
+      setLights(true, false, false);
+      light.current = 0;
+      velocity.current = 1;
+      interval.current = setInterval(autoLights, 1300);
     }
-  }, [running]);
+  };
+
   return (
     <>
+      <div className="center-bottom-TL">
+        TrafficLight is under construction.
+      </div>
       <div className="buttons-container-TL">
         <button
           onClick={() => {
             setLights(true, false, false);
+            clearInterval(interval.current);
+            interval.current = 0;
           }}
           className="red-TL button-TL"
         >
@@ -51,6 +79,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setLights(false, true, false);
+            clearInterval(interval.current);
+            interval.current = 0;
           }}
           className="yellow-TL button-TL"
         >
@@ -59,6 +89,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setLights(false, false, true);
+            clearInterval(interval.current);
+            interval.current = 0;
           }}
           className="green-TL button-TL"
         >
@@ -67,6 +99,8 @@ function TrafficLight() {
         <button
           onClick={() => {
             setAll(true);
+            clearInterval(interval.current);
+            interval.current = 0;
           }}
           className="button-TL"
         >
@@ -75,22 +109,16 @@ function TrafficLight() {
         <button
           onClick={() => {
             setAll(false);
+            clearInterval(interval.current);
+            interval.current = 0;
           }}
           className="button-TL"
         >
           All Off
         </button>
-        <button
-          onClick={() => {
-            setRunning(!running);
-          }}
-          className="button-TL"
-        >
+        <button onClick={toggleAutoLightsInterval} className="button-TL">
           Automatic Cycle
         </button>
-      </div>
-      <div className="center-bottom-TL">
-        TrafficLight is under construction.
       </div>
       <div className="stem-TL"></div>
       <div className="container-TL">
@@ -98,19 +126,19 @@ function TrafficLight() {
           onClick={() => {
             setLights(true, false, false);
           }}
-          className={`red-TL light-TL${redOn ? " on-TL" : ""}`}
+          className={`red-TL light-TL${redLightState ? " on-TL" : ""}`}
         ></div>
         <div
           onClick={() => {
             setLights(false, true, false);
           }}
-          className={`yellow-TL light-TL${yellowOn ? " on-TL" : ""}`}
+          className={`yellow-TL light-TL${yellowLightState ? " on-TL" : ""}`}
         ></div>
         <div
           onClick={() => {
             setLights(false, false, true);
           }}
-          className={`green-TL light-TL${greenOn ? " on-TL" : ""}`}
+          className={`green-TL light-TL${greenLightState ? " on-TL" : ""}`}
         ></div>
       </div>
     </>

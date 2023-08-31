@@ -90,7 +90,7 @@
   border-radius: 8px;
   transition: 80ms;
   border: 2px solid #0c0c0c;
-  box-shadow: 2px 2px 15px rgba(0, 0, 0, 1), inset 0 0 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6), inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .button-TL:hover {
@@ -99,7 +99,7 @@
 
 .button-TL:active {
   transform: scale(98%);
-  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.3), inset 0 0 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.4), inset 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .button-TL.red-TL {
