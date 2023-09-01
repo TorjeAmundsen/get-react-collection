@@ -5,7 +5,6 @@ interface Lives {
 }
 
 function CrocodileGameLives({ lives }: Lives) {
-  const livesArray = Array.apply();
   return (
     <div>
       <CrocodileGameHeart index={1} lives={lives} />
