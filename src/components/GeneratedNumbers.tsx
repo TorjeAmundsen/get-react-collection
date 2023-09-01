@@ -3,6 +3,7 @@ import { useState } from "react";
 interface Props {
   points: number;
   setPoints: React.Dispatch<React.SetStateAction<number>>;
+  setLives: React.Dispatch<React.SetStateAction<number>>;
   setImgClass: React.Dispatch<React.SetStateAction<string>>;
   setPointsClass: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -10,6 +11,7 @@ interface Props {
 function GeneratedNumbers({
   points,
   setPoints,
+  setLives,
   setImgClass,
   setPointsClass,
 }: Props) {
@@ -41,9 +43,8 @@ function GeneratedNumbers({
         setImgClass("right-answer-img");
         setPointsClass("right-answer-points");
       } else {
-        setPoints(points - 1);
+        setLives((prev) => prev - 1);
         setImgClass("wrong-answer-img");
-        setPointsClass("wrong-answer-points");
       }
       setUserInput("");
       generateNewNumbers();

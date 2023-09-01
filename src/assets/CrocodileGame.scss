@@ -24,6 +24,45 @@
   background-color: var(--plt-2);
 }
 
+.croc-lives-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 10rem;
+  height: 4rem;
+}
+
+.croc-heart {
+  opacity: 90%;
+  stroke: black;
+  fill: hsl(0, 35%, 24%);
+  height: 3rem;
+  transform: scale(90%);
+  transition: 500ms;
+}
+
+.filled {
+  opacity: 100%;
+  fill: hsl(0, 92%, 53%);
+  animation: heartBounce 2s infinite;
+}
+
+@keyframes heartBounce {
+  0% {
+    fill: hsl(0, 88%, 46%);
+    transform: scale(95%);
+  }
+  50% {
+    fill: hsl(0, 93%, 54%);
+    transform: scale(98%);
+  }
+  100% {
+    fill: hsl(0, 88%, 46%);
+    transform: scale(95%);
+  }
+}
+
 .croc-input {
   width: 4rem;
   font-size: 32px;
@@ -56,8 +95,6 @@
   font-size: 24px;
   margin: 1rem 1rem;
   user-select: none;
-  /* animation: rightAnswerPoints 0.3s;
-  animation-iteration-count: 2; */
 }
 
 .wrong-answer-points {
@@ -78,23 +115,29 @@
   animation: rightAnswerImg 0.35s;
 }
 
-/* .button-container {
-  button {
-    width: 5rem;
-    height: 1.8rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
-    border-radius: 5px;
-    transition: 100ms;
-    outline: 2px solid black;
-    &:hover {
-      transform: scale(105%);
-    }
-    &:active {
-      transform: scale(98%);
-    }
+.croc-reset-button {
+  color: var(--plt-3);
+  font-size: 1rem;
+  width: 7rem;
+  height: 2.5rem;
+  background-color: var(--plt-2);
+  border: 2px solid black;
+  border-radius: 30px;
+  &:hover {
+    background-color: var(--plt-2-lighter);
   }
-} */
+  &:active {
+    transform: scale(99%);
+  }
+}
+
+.croc-game-over {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--plt-2);
+  text-shadow: 2px 2px 2px black;
+  animation: gameOver 1.5s infinite linear;
+}
 
 @keyframes wrongAnswerPoints {
   0% {
@@ -153,5 +196,17 @@
   }
   100% {
     transform: scale(100.5%);
+  }
+}
+
+@keyframes gameOver {
+  0% {
+    color: hsl(0, 70%, 35%);
+  }
+  50% {
+    color: hsl(0, 80%, 50%);
+  }
+  100% {
+    color: hsl(0, 70%, 35%);
   }
 }

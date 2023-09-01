@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
-import KrokodilleSpill from "./components/KrokodilleSpill";
+import CrocodileGame from "./components/CrocodileGame";
 import TrafficLight from "./components/TrafficLight";
 import Magic8Ball from "./components/Magic8Ball";
 import TaskPlannerBase from "./components/TaskPlannerBase";
@@ -8,7 +8,7 @@ import DevTest from "./components/DevTest";
 
 function App() {
   const navComponents: JSX.Element[] = [
-    <KrokodilleSpill />,
+    <CrocodileGame />,
     <TrafficLight />,
     <Magic8Ball />,
     <TaskPlannerBase />,
