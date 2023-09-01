@@ -1,5 +1,4 @@
 import { useState } from "react";
-/* import { useEffect } from "react"; */
 import GeneratedNumbers from "./GeneratedNumbers";
 import PointsField from "./PointsField";
 
@@ -8,9 +7,6 @@ function KrokodilleSpill() {
   const [imgClass, setImgClass] = useState("");
   const [pointsClass, setPointsClass] = useState("");
 
-  /* useEffect(() => {
-    document.title = "Crocodile Game";
-  }, []); */
   return (
     <>
       <div className="croc-app-container">

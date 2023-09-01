@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import KrokodilleSpill from "./components/KrokodilleSpill";
 import TrafficLight from "./components/TrafficLight";
@@ -14,7 +14,13 @@ function App() {
     <TaskPlannerBase />,
     <DevTest />,
   ];
+
   const [navIndex, setNavIndex] = useState(0);
+
+  useEffect(() => {
+    document.title = documentTitles[navIndex];
+  }, [navIndex]);
+
   return (
     <>
       <NavBar navIndex={navIndex} setNavIndex={setNavIndex} />
@@ -24,3 +30,11 @@ function App() {
 }
 
 export default App;
+
+const documentTitles: string[] = [
+  "Crocodile Game",
+  "Traffic Light",
+  "Magic 8-Ball",
+  "Task Planner",
+  "Torje's React Collection",
+];
