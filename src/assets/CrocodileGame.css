@@ -86,11 +86,16 @@
 }
 
 .crocodile {
-  height: 10rem;
+  height: 17vh;
   margin: 1rem 1rem;
+  padding-top: 1rem;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+
+svg:has(.filled) {
+  filter: drop-shadow(0 0 0.8rem hsla(0, 100%, 50%, 0.75));
 }
 
 .points {
